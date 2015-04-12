@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'sistemas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'demo',
+        'NAME': 'sistemas',
         'USER': 'root',
         'PASSWORD': 'orange2015',
         'HOST': 'act.satranet.com',
