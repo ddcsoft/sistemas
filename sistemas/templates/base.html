@@ -1,15 +1,61 @@
-<!DOCTYPE HTML PUBLIC "//
-W3C//DTD HTML 4.01//EN">
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:400px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:350px;
+    float:left;
+    padding:5px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;
+    height:60px;	 	 
+}
+</style>
 <title>{% block title %}{% endblock %}</title>
 </head>
+
 <body>
-<h1>Mi sitio Web</h1>
-{% block content %}{% endblock %}
+
+<div id="header">
+<h1>Titulo de Encabezado </h1>
+</div>
+
+<div id="nav">
+opcion 1<br>
+opcion 2<br>
+opcion 3<br>
+</div>
+
+<div id="section">
+	<h1>Mi sitio Web</h1>
+	{% block content %}{% endblock %}
+</div>
+<div id="footer">
 {% block footer %}
 <hr>
-<p>Gracias por visitar nuestro sitio web.</p>
+<p>Sitio desarrollado por ddc.</p>
 {% endblock %}
+</div>
+
 </body>
 </html>
+
