@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Fecha Actual  prueba dentro de templates</title>
-</head>
-<body>
-	Hoy es {{ fecha_actual }}.......
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}La fecha actual{% endblock %}
+{% block content %}
+<p>Hoy es: {{ fecha_actual }}</p>
+{% endblock %}
