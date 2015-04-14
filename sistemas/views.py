@@ -5,7 +5,7 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 import datetime
-import time
+from django.utils import timezone
 
 
 def hola(request):
@@ -29,7 +29,7 @@ def horas_adelante(request,offset):
 
 def fecha_actual(request):
 
-	ahora = datetime.datetime.now()
-	#ahora = time.strftime("%Z")
+	#ahora = datetime.datetime.now()
+	ahora = timezone.now()
 	return render(request, 'fecha_actual.html', {'fecha_actual': ahora})
 
