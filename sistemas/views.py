@@ -30,5 +30,5 @@ def fecha_actual(request):
 
 	ahora = datetime.datetime.now()
 	#ahora = timezone.now()
-	return render(request, 'fecha_actual.html', {'fecha_actual': ahora})
+	return render(request, 'include/cabecera.html', {'fecha_actual': ahora})
 
