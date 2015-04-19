@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/estilos.css">
+	<title>{% block b_titulo %}{% endblock %}</title>
+</head>
+
+<body>
+
+<div id="encabezado">
+	<h1>{% block b_encabezado %}{% endblock %}</h1>
+</div>
+
+<div id="menu">
+	{% block b_menu %}{% endblock %}
+</div>
+
+<div id="contenido">
+	{% block b_contenido %}{% endblock %}
+</div>
+<div id="pie">
+{% block b_pie %}
+<hr>
+<p>Sitio desarrollado por ddc.</p>
+{% endblock %}
+</div>
+
+</body>
+</html>
+

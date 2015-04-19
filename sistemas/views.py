@@ -1,5 +1,6 @@
 from django.template.loader import get_template
 from django.template import Context
+
 from django.http import HttpResponse, Http404
 
 from django.shortcuts import render
@@ -13,7 +14,8 @@ def hola(request):
 	return HttpResponse("Hola Mundo: "+BASE_DIR)
 
 def raiz(request):
-	return HttpResponse("Esta es la raiz de la web")
+    ahora = datetime.datetime.now()
+    return render(request, 'include/inicio.html',{'fecha_actual': ahora})
 
 def horas_adelante(request, horas):
     try:
