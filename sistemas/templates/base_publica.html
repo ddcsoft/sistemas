@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static from staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "sistemas/css/estilos.css" %}" />
+<style type="text/css">
+{% include "estilos1.css" %}
+</style>
     <title>{% block b_titulo %}{% endblock %}</title>
 </head>
 
@@ -13,7 +14,7 @@
 </div>
 
 <div id="menu">
-	{% block b_menu %}{% endblock %}
+    {% block b_menu %}{% endblock %}
 </div>
 
 <div id="contenido">
