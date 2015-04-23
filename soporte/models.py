@@ -11,6 +11,8 @@ class Requerimiento(models.Model):
 	fecha_fin = models.DateField()
 	hora_fin = models.TimeField()
 	tipo_requerimiento = models.ForeignKey(TipoRequerimiento)
+	status = models.BooleanField()
+
 
 class Acciones(models.Model):
 	fecha = models.DateField()
