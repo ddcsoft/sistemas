@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<link rel="stylesheet" href="{{ STATIC_URL }}estilos.css" type="text/css" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'sistemas/css/estilos.css' %}" type="text/css" />
 	<title>{% block b_titulo %}{% endblock %}</title>
 </head>
 
