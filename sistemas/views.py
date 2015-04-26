@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 import datetime
 
-
+ahora = datetime.datetime.now()
 def hola(request):
 	import os
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,8 +28,8 @@ def horas_adelante(request, horas):
 
 
 def fecha_actual(request):
-
-    ahora = datetime.datetime.now()
     #ahora = timezone.now()
     return render(request, 'fecha_actual.html', {'fecha_actual': ahora})
+
+	
 

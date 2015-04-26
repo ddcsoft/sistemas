@@ -13,12 +13,22 @@
 </div>
 
 <div id="menu">
-    {% block b_menu %}{% endblock %}
+    {% block b_menu %}
+	<UL >
+		<LH> Menu </LH>
+		<LI> Opcion 1
+		<LI> Opcion 2
+		<LI> Opcion 3
+		<LI> Opcion 4
+		<LI> Opcion 5
+		<LI> <a href="intranet/valida"> Intranet</a> 
+	</UL> 
+
+    {% endblock %}
 </div>
 
 <div id="contenido">
 	{% block b_contenido %}{% endblock %}
-    agregando js a la pagina publica
 </div>
 <div id="pie">
 {% block b_pie %}

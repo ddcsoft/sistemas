@@ -1,0 +1,24 @@
+{% extends "base_privada.html" %}
+
+{% block b_titulo %}Intranet - SISTEMAS{% endblock %}
+{% block b_encabezado %}Intranet {% endblock %}
+{% block b_menu %} 
+<UL >
+	<LH> Menu </LH>
+		<LI> <a href="soporte/"> Soporte</a>
+		<LI> <a href="inventario/">Inventario</a>  
+		<LI> <a href="">Inicio</a> 
+		<LI> <a href="../">Salir</a> 
+	</UL> 
+{% endblock %}
+{% block b_contenido %}
+<p>Este es el inicio de la INTRANET</p>
+<p>Estos son los requerimientos del dia: </p>
+{% if lista_requerimientos %}
+	{% for requerimiento in lista_requerimientos %}
+		<p> {{ requerimiento.descripcion}}</p>
+	{% endfor %}	
+{% else%}
+	<p>No hay Requerimientos</p>
+{% endif %}
+{% endblock %}

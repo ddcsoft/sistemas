@@ -1,0 +1,25 @@
+{% extends "base_privada.html" %}
+
+{% block b_titulo %}SOPORTE - SISTEMAS{% endblock %}
+{% block b_encabezado %}SISTEMA DE SOPORTE {% endblock %}
+{% block b_menu %} 
+<UL >
+	<LH> Menu </LH>
+		<LI> soporte 1
+		<LI> soporte 2
+		<LI> <a href="../">Salir</a> 
+	</UL> 
+{% endblock %}
+{% block b_contenido %}
+<p>Este es el SISTEMA DE SOPORTE </p>
+<p>Estos son los requerimientos del dia: </p>
+{% if lista_requerimientos %}
+	<UL>
+	{% for requerimiento in lista_requerimientos %}
+		<LI><p> {{ requerimiento.descripcion}}</p></LI>
+	{% endfor %}	
+	</UL>
+{% else%}
+	<p>No hay Requerimientos</p>
+{% endif %}
+{% endblock %}
