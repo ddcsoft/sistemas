@@ -18,6 +18,7 @@
 </div>
 
 <div id="contenido">
+	<p>Hola: <strong>{% firstof user.get_short_name user.get_username %}</strong></p>
 	{% block b_contenido %}{% endblock %}
 </div>
 <div id="pie">
