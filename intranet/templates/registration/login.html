@@ -1,0 +1,19 @@
+{% extends "base_privada.html" %}
+
+{% block b_titulo %}Intranet - SISTEMAS{% endblock %}
+{% block b_encabezado %}Intranet {% endblock %}
+
+{% block b_contenido %}
+	<p>Formulario de Validacion</p> <br>
+	<form action="" method="post">
+		<label for="username">User name:</label>
+		<input type="text" name="username" value="" id="username"><br>
+		<label for="password">Password:</label>
+		<input type="password" name="password" value="" id="password">
+		<input type="submit" value="login" />
+		<input type="hidden" name="next" value="{{ next|escape }}" />
+	</form>
+
+<a href="/intranet/">Ingresar</a>
+<a href="../../">Salir</a>
+{% endblock %}
