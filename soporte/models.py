@@ -7,7 +7,6 @@ class TipoRequerimiento(models.Model):
 	def __unicode__(self):
 		return self.descripcion
 
-
 class Requerimiento(models.Model):
 	fecha_inicio = models.DateField(blank=True, null=True)
 	hora_incio = models.TimeField(blank=True,null=True)
