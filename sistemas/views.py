@@ -11,7 +11,7 @@ ahora = datetime.datetime.now()
 def hola(request):
 	import os
 	BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-	return HttpResponse("Hola Mundo: "+BASE_DIR)
+	return HttpResponse("Hola Mundo en laptop: "+BASE_DIR)
 
 def raiz(request):
     ahora = datetime.datetime.now()

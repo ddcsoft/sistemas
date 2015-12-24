@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+
 
 # Create your models here.
 class TipoRequerimiento(models.Model):
@@ -15,6 +17,7 @@ class Requerimiento(models.Model):
 	tipo_requerimiento = models.ForeignKey(TipoRequerimiento)
 	status = models.BooleanField()
 	descripcion = models.CharField(max_length=250)
+	responsable = models.ForeignKey(settings.AUTH_USER_MODEL)
 	
 	def __str__(self):
 		return self.descripcion
@@ -31,6 +34,4 @@ class Acciones(models.Model):
 		verbose_name_plural = "Acciones"
 	def __str__(self):
 		return self.descripcion
-
-
 

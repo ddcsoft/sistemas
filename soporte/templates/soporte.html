@@ -14,11 +14,47 @@
 <p>Este es el SISTEMA DE SOPORTE </p>
 <p>Estos son los requerimientos del dia: </p>
 {% if lista_requerimientos %}
-	<UL>
+<table border=1 cellspacing=0 cellpadding=0>
+ 
+ <tr >
+  <td width=40% valign=top >
+	Fecha  
+  </td>
+  <td width=40% valign=top>
+  	Descripcion
+  </td>
+  <td width=10% valign=top>
+  	Responsable
+  </td>
+  <td  valign=top >
+  1
+  </td>
+  <td valign=top>
+  2
+  </td>
+ </tr>
+
 	{% for requerimiento in lista_requerimientos %}
-		<LI><p> {{ requerimiento.descripcion}}</p></LI>
+
+ <tr >
+  <td  valign=top >
+  <p> {{ requerimiento.fecha_inicio}}</p>
+  </td>
+  <td >
+  <p> {{ requerimiento.descripcion}}</p>
+  </td>
+  <td valign=top>
+  <p> {{ requerimiento.responsable}}</p>
+  </td>
+  <td  valign=top>
+  </td>
+  <td  valign=top >
+  </td>
+ </tr>
+		
 	{% endfor %}	
-	</UL>
+</table>
+
 {% else%}
 	<p>No hay Requerimientos</p>
 {% endif %}
