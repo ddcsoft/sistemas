@@ -57,7 +57,7 @@ class Clasificacion(models.Model):
 
 
 class Articulo(models.Model):
-	codigo = models.CharField(max_length=10)
+	codigo = models.CharField(max_length=10,unique=True)
 	descripcion=models.CharField(max_length=150)
 	modelo = models.CharField(max_length=150)
 	serie = models.CharField(max_length=100,null=True,blank=True)
