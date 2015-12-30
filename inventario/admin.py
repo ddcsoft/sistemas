@@ -30,7 +30,7 @@ admin.site.register(Empleado,EmpleadoAdmin)
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-	list_display = ('codigo','descripcion','modelo','serie','marca','medida')
+	list_display = ('codigo','descripcion','modelo','serie','marca','medida','empresa')
 	search_fields = ('codigo','descripcion')
 
 admin.site.register(Articulo,ArticuloAdmin)
