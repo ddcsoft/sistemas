@@ -19,6 +19,9 @@ class Empresa(models.Model):
 
 class Area(models.Model):
 	descripcion=models.CharField(max_length=100)
+	class Meta:
+		ordering = ["descripcion"]
+
 	def __str__(self):
 		return self.descripcion
 
