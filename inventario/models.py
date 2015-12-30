@@ -86,6 +86,9 @@ class Empleado(models.Model):
 
 class Puesto(models.Model):
 	descripcion = models.CharField(max_length=100)
+	empresa = models.ForeignKey(Empresa)
+	area = models.ForeignKey(Area)
+
 	def __str__(self):
 		return self.descripcion
 
