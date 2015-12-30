@@ -31,9 +31,12 @@ class TipoArticulo(models.Model):
 
 class Marca(models.Model):
 	descripcion = models.CharField(max_length=150)
+	class Meta:
+		ordering = ["descripcion"]
 
 	def __str__(self):
 		return self.descripcion
+
 
 class Clasificacion(models.Model):
 	descripcion = models.CharField(max_length=150)
