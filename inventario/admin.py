@@ -4,16 +4,33 @@ from inventario.models import EstadoArticulo, Area,Empleado,Empresa, Puesto, Tip
 
 
 admin.site.register(EstadoArticulo)
-admin.site.register(Empleado)
 admin.site.register(Empresa)
 admin.site.register(Area)
 admin.site.register(TipoArticulo)
 admin.site.register(Marca)
 admin.site.register(Clasificacion)
-admin.site.register(Articulo)
+
 admin.site.register(TipoMvto)
 admin.site.register(Movimiento)
 admin.site.register(Ubicacion)
-admin.site.register(Puesto)
+
 admin.site.register(Detalle_Movimiento)
 admin.site.register(Ubicacion_Articulo)
+
+class PuestoAdmin(admin.ModelAdmin):
+	list_display = ('descripcion','area','empresa')
+
+admin.site.register(Puesto,PuestoAdmin)
+
+class EmpleadoAdmin(admin.ModelAdmin):
+	list_display = ('nombre','apellidoP','apellidoM','area','empresa')	
+	search_fields = ('nombre','apellidoP','apellidoM')
+
+admin.site.register(Empleado,EmpleadoAdmin)
+
+
+class ArticuloAdmin(admin.ModelAdmin):
+	list_display = ('codigo','descripcion','modelo','serie','marca','medida')
+	search_fields = ('codigo','descripcion')
+
+admin.site.register(Articulo,ArticuloAdmin)

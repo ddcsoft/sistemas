@@ -7,6 +7,8 @@ from django.conf import settings
 # Create your models here.
 class EstadoArticulo(models.Model):
 	descripcion = models.CharField(max_length=50)
+	class Meta:
+		ordering = ["descripcion"]
 	
 	def __str__(self):
 		return self.descripcion
@@ -30,6 +32,8 @@ class Area(models.Model):
 
 class TipoArticulo(models.Model):
 	descripcion=models.CharField(max_length=150)
+	class Meta:
+		ordering = ["descripcion"]
 
 	def __str__(self):
 		return self.descripcion
@@ -45,6 +49,8 @@ class Marca(models.Model):
 
 class Clasificacion(models.Model):
 	descripcion = models.CharField(max_length=150)
+	class Meta:
+		ordering = ["descripcion"]
 
 	def __str__(self):
 		return self.descripcion
@@ -54,21 +60,26 @@ class Articulo(models.Model):
 	codigo = models.CharField(max_length=10)
 	descripcion=models.CharField(max_length=150)
 	modelo = models.CharField(max_length=150)
-	serie = models.CharField(max_length=100)
-	comentario = models.CharField(max_length=300)
-	medida = models.CharField(max_length=50)
+	serie = models.CharField(max_length=100,null=True,blank=True)
+	comentario = models.CharField(max_length=300,null=True,blank=True)
+	medida = models.CharField(max_length=50,null=True,blank=True)
 	estado = models.ForeignKey(EstadoArticulo)
 	empresa = models.ForeignKey(Empresa)
 	tipo = models.ForeignKey(TipoArticulo)
 	marca = models.ForeignKey(Marca)
 	clasificacion = models.ForeignKey(Clasificacion)
 	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL)
+	class Meta:
+		ordering = ["descripcion"]
 
 	def __str__(self):
 		return self.descripcion
 
 class TipoMvto(models.Model):
 	descripcion =  models.CharField(max_length=100)
+	class Meta:
+		ordering = ["descripcion"]
+
 	def __str__(self):
 		return self.descripcion
 
@@ -88,9 +99,11 @@ class Puesto(models.Model):
 	descripcion = models.CharField(max_length=100)
 	empresa = models.ForeignKey(Empresa)
 	area = models.ForeignKey(Area)
+	class Meta:
+		ordering = ["descripcion"]
 
 	def __str__(self):
-		return self.descripcion
+		return "%s-%s-%s"%(self.descripcion,self.area,self.empresa)
 
 class Movimiento(models.Model):
 	fecha_registro = models.DateField()
@@ -103,6 +116,9 @@ class Movimiento(models.Model):
 
 class Ubicacion(models.Model):
 	descripcion = models.CharField(max_length=100)
+	class Meta:
+		ordering = ["descripcion"]
+
 	def __str__(self):
 		return self.descripcion
 
