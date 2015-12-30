@@ -73,6 +73,8 @@ class Empleado(models.Model):
 	apellidoM = models.CharField(max_length=50,null=True,blank=True)
 	empresa = models.ForeignKey(Empresa)
 	area = models.ForeignKey(Area)
+	class Meta:
+		ordering = ["nombre"]
 
 	def __str__(self):
 		return "%s %s %s"%(self.nombre,self.apellidoP, self.apellidoM)
