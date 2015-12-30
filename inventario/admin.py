@@ -1,11 +1,12 @@
 # Register your models here.
 from django.contrib import admin
-from inventario.models import EstadoArticulo, Empleado,Empresa, Puesto, TipoArticulo,Marca,Clasificacion,Articulo,TipoMvto,Movimiento,Ubicacion,Detalle_Movimiento,Ubicacion_Articulo
+from inventario.models import EstadoArticulo, Area,Empleado,Empresa, Puesto, TipoArticulo,Marca,Clasificacion,Articulo,TipoMvto,Movimiento,Ubicacion,Detalle_Movimiento,Ubicacion_Articulo
 
 
 admin.site.register(EstadoArticulo)
 admin.site.register(Empleado)
 admin.site.register(Empresa)
+admin.site.register(Area)
 admin.site.register(TipoArticulo)
 admin.site.register(Marca)
 admin.site.register(Clasificacion)

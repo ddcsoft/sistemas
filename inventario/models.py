@@ -17,6 +17,12 @@ class Empresa(models.Model):
 	def __str__(self):
 		return self.descripcion
 
+class Area(models.Model):
+	descripcion=models.CharField(max_length=100)
+	def __str__(self):
+		return self.descripcion
+
+
 class TipoArticulo(models.Model):
 	descripcion=models.CharField(max_length=150)
 
@@ -62,6 +68,9 @@ class Empleado(models.Model):
 	nombre = models.CharField(max_length=50)
 	apellidoP = models.CharField(max_length=50)
 	apellidoM = models.CharField(max_length=50,null=True,blank=True)
+	empresa = models.ForeignKey(Empresa)
+	area = models.ForeignKey(Area)
+
 	def __str__(self):
 		return "%s %s %s"%(self.nombre,self.apellidoP, self.apellidoM)
 
@@ -69,7 +78,7 @@ class Puesto(models.Model):
 	descripcion = models.CharField(max_length=100)
 	def __str__(self):
 		return self.descripcion
-	
+
 class Movimiento(models.Model):
 	fecha_registro = models.DateField()
 	fecha_Mvto = models.DateField()
