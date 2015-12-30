@@ -37,6 +37,7 @@ class Clasificacion(models.Model):
 
 
 class Articulo(models.Model):
+	codigo = models.CharField(max_length=10)
 	descripcion=models.CharField(max_length=150)
 	modelo = models.CharField(max_length=150)
 	serie = models.CharField(max_length=100)
@@ -57,12 +58,24 @@ class TipoMvto(models.Model):
 	def __str__(self):
 		return self.descripcion
 
+class Empleado(models.Model):
+	nombre = models.CharField(max_length=50)
+	apellidoP = models.CharField(max_length=50)
+	apellidoM = models.CharField(max_length=50,null=True,blank=True)
+	def __str__(self):
+		return "%s %s %s"%(self.nombre,self.apellidoP, self.apellidoM)
+
+class Puesto(models.Model):
+	descripcion = models.CharField(max_length=100)
+	def __str__(self):
+		return self.descripcion
+	
 class Movimiento(models.Model):
 	fecha_registro = models.DateField()
 	fecha_Mvto = models.DateField()
 	Comentario = models.CharField(max_length=200)
 	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="Reg_Mvto",)
-	responsable = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="Res_Mvto",)
+	responsable = models.ForeignKey(Empleado)
 	def __str__(self):
 		return self.Comentario
 
