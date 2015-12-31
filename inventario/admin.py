@@ -13,7 +13,6 @@ admin.site.register(Clasificacion)
 admin.site.register(TipoMvto)
 admin.site.register(Ubicacion)
 
-admin.site.register(Detalle_Movimiento)
 admin.site.register(Ubicacion_Articulo)
 
 class PuestoAdmin(admin.ModelAdmin):
@@ -37,7 +36,7 @@ admin.site.register(Articulo,ArticuloAdmin)
 
 class Detalle_MovimientoInline(admin.TabularInline):
 	model = Detalle_Movimiento
-	fk_name = 'movimiento'
+
 
 class MovimientoAdmin(admin.ModelAdmin):
 	inlines = (Detalle_MovimientoInline,)
