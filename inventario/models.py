@@ -60,7 +60,7 @@ class Articulo(models.Model):
 	codigo = models.CharField(max_length=10,unique=True)
 	descripcion=models.CharField(max_length=150)
 	modelo = models.CharField(max_length=150)
-	serie = models.CharField(max_length=100,null=True,blank=True)
+	serie = models.CharField(max_length=100,unique=True)
 	comentario = models.CharField(max_length=300,null=True,blank=True)
 	medida = models.CharField(max_length=50,null=True,blank=True)
 	estado = models.ForeignKey(EstadoArticulo)
@@ -73,7 +73,7 @@ class Articulo(models.Model):
 		ordering = ["descripcion"]
 
 	def __str__(self):
-		return self.descripcion
+		return "%s-%s-%s"%(self.descripcion,self.serie,self.codigo)
 
 class TipoMvto(models.Model):
 	descripcion =  models.CharField(max_length=100)
@@ -93,7 +93,7 @@ class Empleado(models.Model):
 		ordering = ["nombre"]
 
 	def __str__(self):
-		return "%s %s %s"%(self.nombre,self.apellidoP, self.apellidoM)
+		return "%s %s-%s"%(self.nombre,self.apellidoP, self.empresa)
 
 class Puesto(models.Model):
 	descripcion = models.CharField(max_length=100)
@@ -105,15 +105,6 @@ class Puesto(models.Model):
 	def __str__(self):
 		return "%s-%s-%s"%(self.descripcion,self.area,self.empresa)
 
-class Movimiento(models.Model):
-	fecha_registro = models.DateField()
-	fecha_Mvto = models.DateField()
-	Comentario = models.CharField(max_length=200)
-	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="Reg_Mvto",)
-	responsable = models.ForeignKey(Empleado)
-	def __str__(self):
-		return self.Comentario
-
 class Ubicacion(models.Model):
 	descripcion = models.CharField(max_length=100)
 	class Meta:
@@ -122,9 +113,25 @@ class Ubicacion(models.Model):
 	def __str__(self):
 		return self.descripcion
 
+class Movimiento(models.Model):
+	fecha_registro = models.DateField()
+	fecha_Mvto = models.DateField()
+	fecha_Retorno = models.DateField(null=True,blank=True)
+	Comentario = models.CharField(max_length=200)
+	responsable = models.ForeignKey(Empleado)
+	tipomvto = models.ForeignKey(TipoMvto)
+	ubicacion =  models.ForeignKey(Ubicacion)
+	puesto = models.ForeignKey(Puesto,null = True, blank=True)
+	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="Reg_Mvto",)
+
+	def __str__(self):
+		return self.Comentario
+
+
 class Detalle_Movimiento(models.Model):
-	ubicacion_incial = models.ForeignKey(Ubicacion,related_name="Ini_Mvto",)
-	ubicacion_final =  models.ForeignKey(Ubicacion,related_name="Fin_Mvto",)
+	movimiento = models.ForeignKey(Movimiento)
+	articulo = models.ForeignKey(Articulo)
+	
 	
 
 class Ubicacion_Articulo(models.Model):

@@ -11,7 +11,6 @@ admin.site.register(Marca)
 admin.site.register(Clasificacion)
 
 admin.site.register(TipoMvto)
-admin.site.register(Movimiento)
 admin.site.register(Ubicacion)
 
 admin.site.register(Detalle_Movimiento)
@@ -34,3 +33,13 @@ class ArticuloAdmin(admin.ModelAdmin):
 	search_fields = ('codigo','descripcion')
 
 admin.site.register(Articulo,ArticuloAdmin)
+
+
+class Detalle_MovimientoInline(admin.TabularInline):
+	model = Detalle_Movimiento
+	fk_name = 'movimiento'
+
+class MovimientoAdmin(admin.ModelAdmin):
+	inlines = (Detalle_MovimientoInline,)
+
+admin.site.register(Movimiento,MovimientoAdmin)

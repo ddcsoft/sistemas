@@ -99,16 +99,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='detalle_movimiento',
-            name='ubicacion_final',
-            field=models.ForeignKey(related_name='Fin_Mvto', to='inventario.Ubicacion'),
-        ),
-        migrations.AddField(
-            model_name='detalle_movimiento',
-            name='ubicacion_incial',
-            field=models.ForeignKey(related_name='Ini_Mvto', to='inventario.Ubicacion'),
-        ),
-        migrations.AddField(
             model_name='articulo',
             name='clasificacion',
             field=models.ForeignKey(to='inventario.Clasificacion'),
