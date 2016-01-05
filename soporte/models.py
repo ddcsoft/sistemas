@@ -5,8 +5,6 @@ from django.conf import settings
 # Create your models here.
 class TipoRequerimiento(models.Model):
 	descripcion = models.CharField(max_length=100)
-	otro = models.ForeignKey('self', null=True, blank=True)
-
 	def __unicode__(self):
 		return self.descripcion
 
@@ -20,7 +18,7 @@ class Requerimiento(models.Model):
 	descripcion = models.CharField(max_length=250)
 	responsable = models.ForeignKey(settings.AUTH_USER_MODEL)
 	
-	def __str__(self):
+	def __unicode__(self):
 		return self.descripcion
 
 
@@ -33,6 +31,6 @@ class Acciones(models.Model):
 
 	class Meta:
 		verbose_name_plural = "Acciones"
-	def __str__(self):
+	def __unicode__(self):
 		return self.descripcion
 
