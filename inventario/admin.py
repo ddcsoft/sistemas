@@ -32,9 +32,10 @@ class ArticuloAdmin(admin.ModelAdmin):
     #list_display = ('codigo','descripcion','modelo','serie','marca','medida','empresa')
     #search_fields = ('codigo','descripcion')
     fields = (('codigo', 'descripcion'),('modelo', 'marca'))	
-    form = shortcuts.modelform_factory(Articulo, fields='__all__')
+    
 
 admin.site.register(Articulo,ArticuloAdmin)
+
 
 
 class Detalle_MovimientoInline(admin.TabularInline):

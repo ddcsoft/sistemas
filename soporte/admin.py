@@ -9,7 +9,7 @@ admin.site.register(Acciones)
 
 
 class RequerimientoAdmin(admin.ModelAdmin):
+    form = shortcuts.modelform_factory(Requerimiento, exclude=[])
     
-    form = shortcuts.modelform_factory(Requerimiento, fields='__all__')
 
 admin.site.register(Requerimiento,RequerimientoAdmin)
