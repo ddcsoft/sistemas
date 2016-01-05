@@ -15,6 +15,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^autocomplete/', include('autocomplete_light.urls')),
     url(r'^hola/$', hola),
     url(r'^$', raiz),
     url(r'^fecha/$', fecha_actual),

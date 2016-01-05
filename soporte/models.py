@@ -5,6 +5,7 @@ from django.conf import settings
 # Create your models here.
 class TipoRequerimiento(models.Model):
 	descripcion = models.CharField(max_length=100)
+	otro = models.ForeignKey('self', null=True, blank=True)
 
 	def __unicode__(self):
 		return self.descripcion
