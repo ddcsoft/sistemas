@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'sistemas/js/jquery.js' %}"></script>
+    {% include 'autocomplete_light/static.html' %}
+{% endblock %}
+
+{% block title %}Administracion| {{ site_title|default:_('Django site admin----') }}
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Administracion de Tablas</a></h1>
+{% endblock %}
+ {% block nav-global %}{% endblock %}

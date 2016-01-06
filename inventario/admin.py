@@ -32,9 +32,10 @@ admin.site.register(Empleado,EmpleadoAdmin)
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-    list_display = ('codigo','descripcion','modelo','serie','marca','medida','empresa')
+    list_display = ('codigo','descripcion','modelo','serie','marca','medida','tipo','clasificacion','empresa',)
     search_fields = ('codigo','descripcion','serie','modelo')
-    fields = (('codigo', 'descripcion'),('tipo', 'marca'),('modelo', 'serie'),('medida', 'comentario'),('empresa', 'clasificacion'),('estado', 'registradoPor'))	
+    fields = (('codigo', 'descripcion'),('tipo', 'marca'),('modelo', 'serie'),('medida', 'comentario'),('empresa', 'clasificacion'),('estado', 'registradoPor'))
+    list_filter = ('tipo','marca','empresa','clasificacion',)
     #form = shortcuts.modelform_factory(Articulo, fields='__all__')
 
 admin.site.register(Articulo,ArticuloAdmin)
@@ -47,7 +48,7 @@ class Detalle_MovimientoInline(admin.TabularInline):
 
 class MovimientoAdmin(admin.ModelAdmin):
     inlines = (Detalle_MovimientoInline,)
-    fields= (('fecha_registro','fecha_Mvto','fecha_Retorno'),('tipomvto','responsable','puesto'),('Comentario','registradoPor'))
+    fields= (('fecha_registro','fecha_Mvto','fecha_Retorno'),('tipomvto','responsable'),('ubicacion','puesto'),('Comentario','registradoPor'))
     form = shortcuts.modelform_factory(Detalle_Movimiento,exclude=[])
 
 admin.site.register(Movimiento,MovimientoAdmin)

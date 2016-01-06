@@ -51,6 +51,7 @@ class Clasificacion(models.Model):
 	descripcion = models.CharField(max_length=150)
 	class Meta:
 		ordering = ["descripcion"]
+		verbose_name_plural='Clasificaciones'
 
 	def __str__(self):
 		return self.descripcion
@@ -109,17 +110,18 @@ class Ubicacion(models.Model):
 	descripcion = models.CharField(max_length=100)
 	class Meta:
 		ordering = ["descripcion"]
+		verbose_name_plural='Ubicaciones'
 
 	def __str__(self):
 		return self.descripcion
 
 class Movimiento(models.Model):
 	fecha_registro = models.DateField()
-	fecha_Mvto = models.DateField()
+	fecha_Mvto = models.DateField(verbose_name='Fecha Movimiento')
 	fecha_Retorno = models.DateField(null=True,blank=True)
 	Comentario = models.CharField(max_length=200)
 	responsable = models.ForeignKey(Empleado)
-	tipomvto = models.ForeignKey(TipoMvto)
+	tipomvto = models.ForeignKey(TipoMvto,verbose_name='Tipo de Movimiento')
 	ubicacion =  models.ForeignKey(Ubicacion)
 	puesto = models.ForeignKey(Puesto,null = True, blank=True)
 	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,related_name="Reg_Mvto",)
