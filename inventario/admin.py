@@ -32,7 +32,7 @@ admin.site.register(Empleado,EmpleadoAdmin)
 
 
 class ArticuloAdmin(admin.ModelAdmin):
-    list_display = ('codigo','descripcion','modelo','serie','marca','medida','tipo','clasificacion','empresa',)
+    list_display = ('id','codigo','descripcion','modelo','serie','marca','medida','tipo','clasificacion','empresa',)
     search_fields = ('codigo','descripcion','serie','modelo')
     fields = (('codigo', 'descripcion'),('tipo', 'marca'),('modelo', 'serie'),('medida', 'comentario'),('empresa', 'clasificacion'),('estado', 'registradoPor'))
     list_filter = ('tipo','marca','empresa','clasificacion',)

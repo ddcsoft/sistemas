@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from django.template import Context
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib import auth

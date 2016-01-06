@@ -19,6 +19,10 @@
 
 <div id="contenido">
 	<p>Hola: <strong>{% firstof user.get_short_name user.get_username %}</strong></p>
+	<br>user.get-username: {%  firstof user.get_username %}
+	<br>user.get_short_name: {{user.get_short_name}}  
+	<br>user.get_ID: {{user.id}}  
+
 	{% block b_contenido %}{% endblock %}
 </div>
 <div id="pie">

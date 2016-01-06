@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+
 # Create your models here.
 
 
@@ -58,18 +59,20 @@ class Clasificacion(models.Model):
 
 
 class Articulo(models.Model):
+	
+
 	codigo = models.CharField(max_length=10,unique=True)
 	descripcion=models.CharField(max_length=150)
 	modelo = models.CharField(max_length=150)
 	serie = models.CharField(max_length=100,unique=True)
 	comentario = models.CharField(max_length=300,null=True,blank=True)
 	medida = models.CharField(max_length=50,null=True,blank=True)
-	estado = models.ForeignKey(EstadoArticulo)
+	estado = models.ForeignKey(EstadoArticulo,default=1)
 	empresa = models.ForeignKey(Empresa)
 	tipo = models.ForeignKey(TipoArticulo)
 	marca = models.ForeignKey(Marca)
 	clasificacion = models.ForeignKey(Clasificacion)
-	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL)
+	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
 	class Meta:
 		ordering = ["descripcion"]
 
