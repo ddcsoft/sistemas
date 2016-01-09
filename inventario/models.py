@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.http import HttpResponse
 # Create your models here.
 
 
@@ -58,8 +58,13 @@ class Clasificacion(models.Model):
 		return self.descripcion
 
 
+from django.contrib.auth import get_user_model
+
+def iduser():
+		
+	return 1
+
 class Articulo(models.Model):
-	
 
 	codigo = models.CharField(max_length=10,unique=True)
 	descripcion=models.CharField(max_length=150)
@@ -72,12 +77,14 @@ class Articulo(models.Model):
 	tipo = models.ForeignKey(TipoArticulo)
 	marca = models.ForeignKey(Marca)
 	clasificacion = models.ForeignKey(Clasificacion)
-	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
+	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,default=iduser)
 	class Meta:
 		ordering = ["descripcion"]
 
 	def __str__(self):
-		return "%s-%s-%s"%(self.descripcion,self.serie,self.codigo)
+		return "%s-%s-%s-%s"%(self.descripcion,self.serie,self.codigo,self.empresa)
+	def iduser(request):
+		return request.user.iduser
 
 class TipoMvto(models.Model):
 	descripcion =  models.CharField(max_length=100)
