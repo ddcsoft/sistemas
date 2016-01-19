@@ -56,6 +56,13 @@ class Clasificacion(models.Model):
 
 	def __str__(self):
 		return self.descripcion
+class Proveedor(models.Model):
+	descripcion=models.CharField(max_length=100)
+	class Meta:
+		ordering = ["descripcion"]
+
+	def __str__(self):
+		return self.descripcion
 
 
 from django.contrib.auth import get_user_model
@@ -78,6 +85,9 @@ class Articulo(models.Model):
 	marca = models.ForeignKey(Marca)
 	clasificacion = models.ForeignKey(Clasificacion)
 	registradoPor = models.ForeignKey(settings.AUTH_USER_MODEL,default=iduser)
+	proveedor = models.ForeignKey(Proveedor,null=True,blank=True)
+	costo=models.DecimalField(max_digits=10,decimal_places=2)
+
 	class Meta:
 		ordering = ["descripcion"]
 

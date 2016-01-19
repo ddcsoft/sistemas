@@ -1,6 +1,6 @@
 # Register your models here.
 from django.contrib import admin
-from inventario.models import EstadoArticulo, Area,Empleado,Empresa, Puesto, TipoArticulo,Marca,Clasificacion,TipoMvto,Movimiento,Ubicacion,Detalle_Movimiento,Ubicacion_Articulo
+from inventario.models import EstadoArticulo, Area,Empleado,Empresa, Puesto, TipoArticulo,Marca,Clasificacion,TipoMvto,Movimiento,Ubicacion,Detalle_Movimiento,Ubicacion_Articulo,Proveedor
 from autocomplete_light import shortcuts
 from .models import Articulo
 
@@ -15,6 +15,8 @@ admin.site.register(TipoMvto)
 admin.site.register(Ubicacion)
 
 admin.site.register(Ubicacion_Articulo)
+admin.site.register(Proveedor)
+
 admin.site.empty_value_display = 'gg'
 
 
@@ -35,7 +37,7 @@ class ArticuloAdmin(admin.ModelAdmin):
     list_per_page = 50
     list_display = ('id','codigo','descripcion','modelo','serie','marca','medida','tipo','clasificacion','empresa',)
     search_fields = ('codigo','descripcion','serie','modelo')
-    fields = (('codigo', 'descripcion'),('tipo', 'marca'),('modelo', 'serie'),('medida', 'comentario'),('empresa', 'clasificacion'),('estado', 'registradoPor'))
+    fields = (('codigo', 'descripcion'),('tipo', 'marca'),('modelo', 'serie'),('medida', 'comentario'),('empresa', 'clasificacion'),('estado', 'registradoPor'),('proveedor','costo'))
     list_filter = ('tipo','marca','empresa','clasificacion',)
 
     #form = shortcuts.modelform_factory(Articulo, fields='__all__')
